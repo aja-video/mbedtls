@@ -321,8 +321,8 @@ typedef void mbedtls_x509_crt_restart_ctx;
  * new algorithms are added to the library. New minor versions of Mbed TLS will
  * not reduce this profile unless serious security concerns require it.
  */
-extern const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_default;
-
+//extern const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_default;
+__declspec(dllexport) const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_default;
 /**
  * Expected next default profile. Recommended for new deployments.
  * Currently targets a 128-bit security level, except for allowing RSA-2048.
@@ -333,8 +333,8 @@ extern const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_next;
 /**
  * NSA Suite B profile.
  */
-extern const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_suiteb;
-
+//extern const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_suiteb;
+__declspec(dllexport) const mbedtls_x509_crt_profile mbedtls_x509_crt_profile_suiteb;
 /**
  * Empty profile that allows nothing. Useful as a basis for constructing
  * custom profiles.

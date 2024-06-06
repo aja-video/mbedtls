@@ -81,7 +81,8 @@
  */
 
 #if !defined(MBEDTLS_CT_ASM)
-extern volatile mbedtls_ct_uint_t mbedtls_ct_zero;
+//extern volatile mbedtls_ct_uint_t mbedtls_ct_zero;
+__declspec(dllexport) volatile mbedtls_ct_uint_t mbedtls_ct_zero;
 #endif
 
 /**

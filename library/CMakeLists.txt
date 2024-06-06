@@ -316,6 +316,9 @@ if(USE_SHARED_MBEDTLS_LIBRARY)
     add_library(${mbedtls_target} SHARED ${src_tls})
     set_target_properties(${mbedtls_target} PROPERTIES VERSION 3.6.0 SOVERSION 21)
     target_link_libraries(${mbedtls_target} PUBLIC ${libs} ${mbedx509_target})
+
+    add_dependencies(${mbedx509_target} ${mbedcrypto_target})
+
 endif(USE_SHARED_MBEDTLS_LIBRARY)
 
 foreach(target IN LISTS target_libraries)
