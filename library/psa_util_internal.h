@@ -16,6 +16,8 @@
 
 #include "psa/crypto.h"
 
+#include "mbedtls/export.h"
+
 #if defined(MBEDTLS_PSA_CRYPTO_CLIENT)
 
 /*************************************************************************
@@ -61,8 +63,7 @@ extern const mbedtls_error_pair_t psa_to_lms_errors[3];
 #endif
 
 #if defined(MBEDTLS_USE_PSA_CRYPTO) || defined(MBEDTLS_SSL_PROTO_TLS1_3)
-//extern const mbedtls_error_pair_t psa_to_ssl_errors[7];
-__declspec(dllexport) const mbedtls_error_pair_t psa_to_ssl_errors[7];
+EXPORT const mbedtls_error_pair_t psa_to_ssl_errors[7];
 #endif
 
 #if defined(PSA_WANT_KEY_TYPE_RSA_PUBLIC_KEY) ||    \
