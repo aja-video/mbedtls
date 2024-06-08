@@ -319,6 +319,11 @@ if(USE_SHARED_MBEDTLS_LIBRARY)
 
     add_dependencies(${mbedx509_target} ${mbedcrypto_target})
 
+    if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+        list(APPEND TARGET_COMPILE_DEFS
+                -DBUILDING_SHARED)
+    endif()
+
 endif(USE_SHARED_MBEDTLS_LIBRARY)
 
 foreach(target IN LISTS target_libraries)
@@ -343,6 +348,8 @@ foreach(target IN LISTS target_libraries)
         target_compile_definitions(${target}
             PUBLIC MBEDTLS_USER_CONFIG_FILE="${MBEDTLS_USER_CONFIG_FILE}")
     endif()
+    target_compile_definitions(${target} PRIVATE ${TARGET_COMPILE_DEFS})
+
     install(
         TARGETS ${target}
         EXPORT MbedTLSTargets
