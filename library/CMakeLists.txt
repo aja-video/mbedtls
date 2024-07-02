@@ -218,6 +218,7 @@ endif()
 
 if(WIN32)
     set(libs ${libs} ws2_32 bcrypt)
+    message(STATUS "!!!! Settings libs: ${libs}")
 endif(WIN32)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -274,6 +275,7 @@ set(p256m_target "${MBEDTLS_TARGET_PREFIX}p256m")
 set(everest_target "${MBEDTLS_TARGET_PREFIX}everest")
 
 if(USE_STATIC_MBEDTLS_LIBRARY)
+    message(STATUS "!!!! Using libs: ${libs}")
     add_library(${mbedcrypto_static_target} STATIC ${src_crypto})
     set_target_properties(${mbedcrypto_static_target} PROPERTIES OUTPUT_NAME mbedcrypto)
     target_link_libraries(${mbedcrypto_static_target} PUBLIC ${libs})
